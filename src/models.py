@@ -229,7 +229,7 @@ class PlausibilityRankingRoBERTa(pl.LightningModule):
                     )
                     prem_score[cur_idxs] = outputs["loss"]
                 ssm[i, j] = prem_score.sum()
-            preds[i] = ssm[i].argmax()
+            preds[i] = ssm[i].argmin()
 
         outs = (
             ssm,
